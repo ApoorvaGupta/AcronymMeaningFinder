@@ -33,10 +33,10 @@
 }
 
 
-- (void)handleSearchForSearchString:(NSString *)searchString {
-    [self fetchMeaningsForAcronym:searchString];
-    
-   }
+//- (void)handleSearchForSearchString:(NSString *)searchString {
+//    [self fetchMeaningsForAcronym:searchString];
+//    
+//   }
 
 -(void) fetchMeaningsForAcronym: (NSString *) acronym {
     
@@ -78,7 +78,8 @@
     [searchBar resignFirstResponder];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [resultsArray removeAllObjects];
-    [self handleSearchForSearchString:searchBar.text];
+    [self.searchDisplayController.searchResultsTableView reloadData];
+    [self fetchMeaningsForAcronym:searchBar.text];
     
     
 }
